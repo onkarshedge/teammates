@@ -3,20 +3,14 @@
    License: none (public domain)
    --------------------------------  CSS Reset  -----------------------------------------
 */
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+    blockquote, pre, a, abbr, acronym, address, big, cite, code, del,
+    dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup,
+    tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form,
+    label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, figure, figcaption, footer,
+    header, hgroup, menu, nav, output, ruby, section, summary, time,
+    mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -25,10 +19,11 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, footer, header, hgroup,
+    menu, nav, section {
     display: block;
 }
+
 body {
     line-height: 1;
     font-family: Arial, Helvetica, sans-serif;
@@ -38,11 +33,12 @@ body {
 blockquote, q {
     quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before, blockquote:after, q:before, q:after {
     content: '';
     content: none;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -94,7 +90,6 @@ h2 {
     color: gray;
 }
 /*-----------------------------------------------------------------------------------------*/
-
 #header {
     background-color: black;
     height: 60px;
@@ -112,7 +107,7 @@ h2 {
 }
 
 #menuHolder {
-
+    
 }
 
 #textHolder {
@@ -126,19 +121,19 @@ h2 {
 }
 
 #navbar {
-   color: white;
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 14px;
-   line-height: 60px;
-   font-weight: bold;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 60px;
+    font-weight: bold;
 }
 
 #navbar li {
-   color: white;
-   float: left;
-   list-style-type: none;
-   padding-left: 20px;
-   padding-right: 20px;
+    color: white;
+    float: left;
+    list-style-type: none;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #navbar li a {
@@ -154,26 +149,26 @@ h2 {
 }
 
 .current {
-   height: 78px;
-   background-image:url('../images/triangle.gif');
-   background-repeat:no-repeat;
-   background-position:center;
-   overflow: hidden;
+    height: 78px;
+    background-image: url('../images/triangle.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
 }
 
 .bold {
     font-weight: bold;
 }
 
-#loginHolder input{
+#loginHolder input {
     color: #00FF00;
-       font-weight: bold;
-       border-style: none;
-       background-color: black;
-       cursor: pointer;
+    font-weight: bold;
+    border-style: none;
+    background-color: black;
+    cursor: pointer;
 }
 
-#loginHolder form{
+#loginHolder form {
     width: 120px;
     display: inline;
     border-left: 1px dotted white;
@@ -187,12 +182,12 @@ h2 {
     margin: 0px auto;
 }
 
-#mainContent .toc{
+#mainContent .toc {
     color: blue;
     font-size: 15px;
 }
 
-#mainContent #question{
+#mainContent #question {
     font-weight: bold;
 }
 
@@ -255,12 +250,12 @@ h2.subcaption {
 .feature-description {
     color: gray;
     margin: 0.2em 0;
-    padding-top:20px;
-    width:500px
+    padding-top: 20px;
+    width: 500px
 }
 
 .feature-description p {
-    padding-top:10px;
+    padding-top: 10px;
 }
 
 .tiny-text {
@@ -271,82 +266,130 @@ h2.subcaption {
 .tiny-text a:link {
     color: gray;
 }
-
-.coreTeamDetailsCell{
-	vertical-align: middle; 
-	padding-left:10px;
+/*--------------------------------------------------------------------*/
+.flip-container {
+    perspective: 1000;
+    width: 180px;
+    height: 160px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    position: relative;
+    float: left;
 }
 
-.coreTeamPhotoCell{
-	padding-left:35px;
-	padding-bottom:5px;
+.flip-container:hover .flipper {
+    transform: rotateY(180deg);
 }
 
+.flipper {
+    transition: all 0.6s;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+}
+
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.front img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.back {
+    border-radius: 15px;
+    border: 2px solid;
+    transform: rotateY(180deg);
+    background: #f8f8f8;
+    display: block;
+    box-sizing: border-box;
+}
+
+.coreMainBackCell {
+    padding-top: 20px;
+    padding-left: 10px;
+    font-size: small;
+    word-wrap: break-word;
+}
+
+.coreTeamDetailsCell {
+    vertical-align: top; padding-left : 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+.coreTeamPhotoCell {
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+/*--------------------------------------------------------------------*/
 #footer {
-   background-color: black;
-   clear: both;
-   color: white;
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 12px;
-   height: 17px;
-   position: fixed;
-   bottom: 0;
-   z-index: 10;
-   width: 100%;
+    background-color: black;
+    clear: both;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    height: 17px;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
 }
 
 #footerWrapper {
-   text-align: center;
-   margin: 0 auto;
-   position: relative;
-   top: 0;
-   width: 1024px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+    width: 1024px;
 }
 
 #footerLeftCol {
-   width: 500px;
-   text-align: right;
-   float: left;
+    width: 500px;
+    text-align: right;
+    float: left;
 }
 
 #footerRightCol {
-   float: left;
-   margin-left: 570px;
-   width: 450px;
+    float: left;
+    margin-left: 570px;
+    width: 450px;
 }
 
 #footer a:link {
-   color: #FFFFFF;
+    color: #FFFFFF;
 }
 
 #footer a:visited {
-   color: #FFFFFF;
+    color: #FFFFFF;
 }
 
 #footer a:link:hover {
-   color: #FFFFFF;
-   text-decoration: underline;
+    color: #FFFFFF;
+    text-decoration: underline;
 }
 
-#browserMessage{
+#browserMessage {
     background-color: #FFFF99;
     margin: 10px auto;
     padding: 15px;
     text-align: left;
     width: 700px;
     font-size: 14px;
-    font-weight:bold;
+    font-weight: bold;
     line-height: 18px;
-    
     /*prefix required to accommodate different browsers, especially slightly out-dated
      browsers which may not yet support the browser-radius(without prefix)*/
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    
 }
 
-#browserMessage table{
+#browserMessage table {
     margin-left: 50px;
     margin-top: 10px;
     width: 700px;
@@ -355,8 +398,9 @@ h2.subcaption {
 #featureSummary {
     padding-left: 25px;
 }
-#featureSummary li{
-    list-style-type :disc;
+
+#featureSummary li {
+    list-style-type: disc;
     padding: 5px;
     font-size: 14px;
 }
